@@ -1,0 +1,47 @@
+<section class="text-gray-600 body-font">
+    <div class="example-container flex justify-center">
+        <form [formGroup]="options" (ngSubmit)="submit()">
+
+
+            <div class="example-form-fields flex max-sm:flex-col space-x-2">
+
+                <p>
+                    <mat-form-field [floatLabel]="getFloatLabelValue()">
+                        <mat-label>Youtube URL</mat-label>
+                        <input matInput placeholder="Link of media" formControlName="url">
+                    </mat-form-field>
+                </p>
+                <!-- <br> -->
+
+                <p>
+                    <mat-form-field [hideRequiredMarker]="hideRequiredControl.value"
+                        [floatLabel]="getFloatLabelValue()">
+                        <mat-select required formControlName="media">
+
+                            <mat-option value="video">Video</mat-option>
+                            <mat-option value="audio">Audio</mat-option>
+                        </mat-select>
+                        <mat-label><mat-icon>image</mat-icon> <strong> Media </strong> <em> (Choose below)
+                            </em></mat-label>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field [hideRequiredMarker]="hideRequiredControl.value"
+                        [floatLabel]="getFloatLabelValue()">
+                        <mat-select required formControlName="quality">
+                            
+                            <mat-option value="high">High</mat-option>
+                            <mat-option value="low">Low</mat-option>
+                        </mat-select>
+                        <mat-label><mat-icon>settings</mat-icon> <strong> Quality </strong> <em> low </em></mat-label>
+                    </mat-form-field>
+                </p>
+
+            </div>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="options.invalid">Download ...</button>
+
+        </form>
+    </div>
+</section>
